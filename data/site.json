@@ -1,0 +1,50 @@
+{
+  "_type": "siteSettings",
+  "orgName": "Islamic Center of Cedar Rapids",
+  "academyName": "ICCR Academy",
+  "logo": "assets/iccra-logo.png",
+  "primaryNav": [
+    { "label": "Curriculum", "href": "curriculum.html" },
+    { "label": "Why ICCRA", "href": "why-iccra.html" },
+    { "label": "Faculty", "href": "faculty.html" },
+    { "label": "Student Life", "href": "student-life.html" },
+    { "label": "Parents & Community", "href": "parents-community.html" },
+    { "label": "Admissions", "href": "admissions.html" }
+  ],
+  "utilityNav": [
+    { "label": "Portal", "href": "https://portal.crmosque.org", "external": true }
+  ],
+  "headerSocial": [
+    { "label": "Instagram", "href": "https://www.instagram.com/iccr_a/?hl=en", "icon": "instagram" },
+    { "label": "Facebook", "href": "https://m.facebook.com/crmosque/#_=_", "icon": "facebook" }
+  ],
+  "footerNav": [
+    { "heading": "Explore", "links": [
+      { "label": "Curriculum", "href": "curriculum.html" },
+      { "label": "Faculty & Staff", "href": "faculty.html" },
+      { "label": "Student Life", "href": "student-life.html" },
+      { "label": "Admissions", "href": "admissions.html" }
+    ]},
+    { "heading": "Parents & Community", "links": [
+      { "label": "Parent Resources", "href": "parent-resources.html" },
+      { "label": "Parent Handbook", "href": "parent-handbook.html" },
+      { "label": "Community Gatherings", "href": "community-gatherings.html" },
+      { "label": "Volunteering", "href": "volunteering.html" },
+      { "label": "Calendar", "href": "calendar.html" }
+    ]}
+  ],
+  "newsletter": {
+    "_note": "Paste the form action URL from Mailchimp: Audience > Signup forms > Embedded forms > copy the URL in action=\"...\" (starts with https:// and contains list-manage.com/subscribe/post).",
+    "mailchimpFormAction": ""
+  },
+  "contact": {
+    "address": "2999 1st Avenue SW, Cedar Rapids, IA 52405",
+    "phone": "(319) 362-0857",
+    "email": "iccra-administrator@crmosque.org"
+  },
+  "social": [
+    { "label": "Facebook", "href": "https://m.facebook.com/crmosque/#_=_" },
+    { "label": "Instagram", "href": "https://www.instagram.com/iccr_a/?hl=en" },
+    { "label": "YouTube", "href": "https://www.youtube.com/channel/UCrNUfszfwVTdT5KE_RpdwKA" }
+  ]
+}

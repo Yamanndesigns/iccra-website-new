@@ -1,0 +1,17 @@
+{
+  "name": "iccra-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity Studio for the ICCR Academy website: edit photos, faculty, and board members.",
+  "scripts": {
+    "dev": "sanity dev",
+    "deploy": "sanity deploy",
+    "import-starter": "sanity dataset import starter-content.ndjson production --missing"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "latest",
+    "styled-components": "^6.1.0"
+  }
+}

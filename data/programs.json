@@ -1,0 +1,35 @@
+{
+  "_type": "programsOverview",
+  "intro": "ICCR Academy runs on a blended-learning model: accredited, live online academics during the day, taught alongside in-person Islamic studies — all held within the Masjid, guided by Muslim administrators, staff, and instructors.",
+  "gradeRange": "Grades 4–12, growing toward full K–12",
+  "islamic": {
+    "kicker": "Rooted in Revelation",
+    "title": "Islamic Studies Curriculum",
+    "summary": "Daily instruction that builds character alongside knowledge — taught by qualified Muslim instructors in a warm, familiar setting inside the Masjid.",
+    "subjects": [
+      "Arabic reading & writing",
+      "Qur'anic memorization & recitation, including tajweed and beautification",
+      "Aqeedah — Islamic creed",
+      "Fiqh — Islamic jurisprudence",
+      "Tarbiyah — spiritual development & enhancement",
+      "Seerah — life of the Prophet ﷺ",
+      "Daily Sunnah practice",
+      "Memorization of du'as & daily adhkar"
+    ]
+  },
+  "academic": {
+    "kicker": "Built on Rigor",
+    "title": "Academic Curriculum",
+    "summary": "A fully accredited online public school program, brought to life with real-time instruction, hands-on support, and enrichment beyond the screen.",
+    "subjects": [
+      "Accredited online public school partnership",
+      "Live daily classes with proctor supervision",
+      "One-on-one tutoring in Math, Science & ELA",
+      "Art & studio classes",
+      "Physical education",
+      "Life-skills instruction",
+      "Structured extracurricular activities",
+      "Field trips tied directly to class material"
+    ]
+  }
+}

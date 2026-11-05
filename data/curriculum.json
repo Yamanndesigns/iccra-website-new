@@ -1,0 +1,37 @@
+{
+  "_type": "curriculumDetail",
+  "intro": "A closer look at how Islamic studies and core academics are sequenced across ICCRA's grade bands — from foundational Qur'an and literacy work in the elementary years to a dedicated higher-level Islamic studies track in grade 7 and above.",
+  "gradeBands": [
+    {
+      "range": "Grades 4–6",
+      "title": "Foundations",
+      "islamic": "Arabic literacy, Qur'an memorization with tajweed basics, daily Sunnah practices, and an introduction to Seerah — building the habits students carry through the rest of their time at ICCRA.",
+      "academic": "Core Math, Science, and ELA through the accredited online partner, with live proctor-supervised sessions and one-on-one tutoring for students who need extra support."
+    },
+    {
+      "range": "Grades 7–9",
+      "title": "Higher-Level Islamic Studies Track",
+      "islamic": "Students move into ICCRA's dedicated higher-level Islamic studies curriculum, studying Aqeedah, Fiqh, and Tarbiyah in greater depth alongside continued Qur'an and Arabic instruction.",
+      "academic": "Expanded academic coursework with increasing independence, still supported by live instruction and subject-specific tutoring."
+    },
+    {
+      "range": "Grades 10–12",
+      "title": "Preparation & Leadership",
+      "islamic": "Continued study of Aqeedah, Fiqh, and Tarbiyah, with opportunities for older students to mentor younger classmates and take on leadership roles within the Islamic studies program.",
+      "academic": "College- and career-preparatory coursework through the accredited academic partner, with academic advising as students plan their next steps."
+    }
+  ],
+  "advancedTrack": {
+    "title": "Advanced Islamic Studies — Grades 7 and Above",
+    "description": "Beginning in 7th grade, ICCRA students enter a higher-level Islamic studies curriculum developed specifically for older students — moving beyond foundational practice into deeper study of creed, jurisprudence, and spiritual development.",
+    "subjects": [
+      { "name": "Aqeedah", "description": "A structured study of Islamic creed — the core beliefs that ground a Muslim's understanding of God, revelation, and the unseen." },
+      { "name": "Fiqh", "description": "Applied Islamic jurisprudence, covering worship, daily conduct, and how Islamic rulings are derived and applied to real life." },
+      { "name": "Tarbiyah", "description": "Ongoing spiritual development and character formation, guided by mentorship from Islamic studies faculty." }
+    ]
+  },
+  "scopeAndSequence": {
+    "label": "Download the 5th Grade Scope & Sequence (PDF)",
+    "href": "assets/iccra-scope-and-sequence.pdf"
+  }
+}

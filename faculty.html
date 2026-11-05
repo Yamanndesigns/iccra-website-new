@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty &amp; Staff — ICCR Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="faculty">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="siteHeader"><div id="site-header"></div></header>
+
+<main id="main">
+  <section class="page-hero">
+    <img data-cms="facultyHero" class="page-hero-bg" src="assets/photo-classroom-hall.jpg" alt="">
+    <div class="page-hero-inner reveal">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Faculty &amp; Staff</p>
+      <h1>The people behind ICCRA</h1>
+      <p class="page-hero-lead">A team of educators, scholars, and administrators.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head reveal">
+      <p class="eyebrow">Administration</p>
+      <h2>Leading ICCRA day to day</h2>
+    </div>
+    <div class="admin-grid reveal" id="adminGrid"></div>
+
+    <h3 class="subgroup-title reveal">Teaching Faculty</h3>
+    <div class="teacher-grid reveal" id="teacherGrid"></div>
+
+    <h3 class="subgroup-title reveal">Governing Committee</h3>
+    <div class="committee-grid reveal" id="committeeGrid"></div>
+  </section>
+</main>
+
+<footer class="site-footer"><div id="site-footer"></div></footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><g id="khatam-star"><path d="M100 10 L118 70 L180 55 L134 100 L180 145 L118 130 L100 190 L82 130 L20 145 L66 100 L20 55 L82 70 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></g></defs>
+</svg>
+
+<div class="modal-overlay" id="facultyModal">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-photo"></div>
+    <div class="modal-body"><div class="modal-body-content"></div></div>
+  </div>
+</div>
+
+<script src="js/partials.js"></script>
+<script src="js/sanity-client.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initChrome('faculty');
+  initFacultyModal();
+
+  const initialsOf = name => name.replace(/^Dr\.\s*/, '').split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  const avatar = (p, cls = 'avatar') => `<div class="${cls}" ${p.photo ? '' : 'aria-hidden="true"'}>${p.photo ? `<img src="${p.photo}?w=300&h=300&fit=crop&auto=format" alt="${p.name}">` : (p.initials || initialsOf(p.name))}</div>`;
+
+  loadFaculty().then(data => {
+    document.getElementById('adminGrid').innerHTML = data.administration.map(p => `
+      <article class="admin-card" tabindex="0" role="button" aria-haspopup="dialog" data-person='${JSON.stringify(p).replace(/'/g, "&apos;")}'>
+        ${avatar(p, 'avatar avatar-lg')}
+        <div class="admin-card-body">
+          <h3>${p.name}</h3>
+          <p class="role">${p.role}</p>
+          <p class="bio">${p.summary || p.bio}</p>
+          <span class="click-hint">Read full bio →</span>
+        </div>
+      </article>
+    `).join('');
+
+    document.getElementById('teacherGrid').innerHTML = data.teachers.map(p => `
+      <article class="teacher-card" tabindex="0" role="button" aria-haspopup="dialog" data-person='${JSON.stringify(p).replace(/'/g, "&apos;")}'>
+        ${avatar(p)}
+        <h4>${p.name}</h4>
+        <p class="role">${p.role}</p>
+        <p class="bio">${p.summary || p.credentials || p.bio}</p>
+        <span class="click-hint">Read full bio →</span>
+      </article>
+    `).join('');
+
+    // Board members have photos (teachers chose not to); fall back to initials until a photo is added
+    document.getElementById('committeeGrid').innerHTML = data.committee.map(c => {
+      const person = { ...c, initials: c.initials || initialsOf(c.name) };
+      return `
+      <article class="teacher-card committee-card" tabindex="0" role="button" aria-haspopup="dialog" data-person='${JSON.stringify(person).replace(/'/g, "&apos;")}'>
+        ${avatar(person)}
+        <h4>${c.name}</h4>
+        <p class="role">${c.role}</p>
+        ${c.bio ? `<p class="bio bio-clamp">${c.bio}</p><span class="click-hint">Read full bio →</span>` : ''}
+      </article>`;
+    }).join('');
+
+    bindFacultyCards();
+    initReveals();
+  });
+</script>
+</body>
+</html>
