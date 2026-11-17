@@ -394,7 +394,7 @@ section { padding: var(--section-pad) 0; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 .calendar-frame { border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; background: var(--white); }
-.calendar-frame iframe { display: block; width: 100%; height: clamp(520px, 70vh, 720px); border: 0; }
+.calendar-frame iframe { display: block; width: 100% !important; height: clamp(560px, 78vh, 780px) !important; border: 0; }
 .calendar-note { margin-top: 14px; color: var(--ink-soft); font-size: 0.92rem; }
 .calendar-note a { color: var(--teal); font-weight: 600; }
 .subscribe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
