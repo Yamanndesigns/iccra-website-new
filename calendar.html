@@ -19,7 +19,7 @@
     <div class="page-hero-inner reveal">
       <p class="breadcrumb"><a href="index.html">Home</a> / <a href="parents-community.html">Parents &amp; Community</a> / Calendar</p>
       <h1>School Calendar</h1>
-      <p class="page-hero-lead">Key dates for the current school year, plus a subscribable digital calendar that stays in sync automatically.</p>
+      <p class="page-hero-lead">Every key date for the 2026–2027 school year, live from the school office, plus one-tap options to add it to your own calendar.</p>
     </div>
   </section>
 
@@ -31,24 +31,30 @@
       </div>
 
       <div class="tab-panel active" id="panelSchool">
-        <div class="content-block" style="padding:0; max-width: 100%;">
-          <ul>
-            <li>First day of school — late August</li>
-            <li>Fall break — mid-October</li>
-            <li>Winter break — late December through early January</li>
-            <li>Spring break — mid-March</li>
-            <li>Ramadan schedule adjustments — dates vary by lunar calendar</li>
-            <li>Last day of school — early June</li>
-          </ul>
-          <p style="color:var(--ink-faint); font-size:0.88rem;">Exact dates are confirmed each year and posted here as soon as they're finalized.</p>
+        <div class="calendar-frame">
+          <iframe id="schoolCalendar" title="ICCR Academy 2026–2027 School Calendar" src="https://calendar.google.com/calendar/embed?src=f2c4fee20951bfe8765161b6037ab3470d2ed166891b9604f9f736425152fda0%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=MONTH" data-src="https://calendar.google.com/calendar/embed?src=f2c4fee20951bfe8765161b6037ab3470d2ed166891b9604f9f736425152fda0%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0" loading="lazy"></iframe>
         </div>
+        <p class="calendar-note">Dates are kept up to date by the school office. <a href="#digital" class="calendar-tab-link">Add this calendar to your phone →</a></p>
       </div>
 
       <div class="tab-panel" id="panelDigital">
-        <div class="calendar-embed">
-          <p>Subscribe to the ICCRA calendar feed to see live updates in Google Calendar, Apple Calendar, or Outlook.<br><br><strong>webcal://calendar.crmosque.org/iccra.ics</strong></p>
+        <div class="subscribe-grid">
+          <div class="subscribe-card">
+            <h3>Google Calendar</h3>
+            <p>Adds every ICCRA date to your Google Calendar. New dates and changes show up automatically.</p>
+            <a class="btn btn-primary" href="https://calendar.google.com/calendar/render?cid=f2c4fee20951bfe8765161b6037ab3470d2ed166891b9604f9f736425152fda0%40group.calendar.google.com" target="_blank" rel="noopener">Add to Google Calendar</a>
+          </div>
+          <div class="subscribe-card">
+            <h3>Apple Calendar (iPhone, Mac)</h3>
+            <p>Opens your Calendar app and asks to subscribe. Updates sync on their own.</p>
+            <a class="btn btn-primary" href="webcal://calendar.google.com/calendar/ical/f2c4fee20951bfe8765161b6037ab3470d2ed166891b9604f9f736425152fda0%40group.calendar.google.com/public/basic.ics">Subscribe in Apple Calendar</a>
+          </div>
+          <div class="subscribe-card">
+            <h3>Outlook or other apps</h3>
+            <p>Copy this link and paste it into your calendar app's "subscribe from web" or "add calendar from URL" option.</p>
+            <button type="button" class="btn btn-outline" data-copy="https://calendar.google.com/calendar/ical/f2c4fee20951bfe8765161b6037ab3470d2ed166891b9604f9f736425152fda0%40group.calendar.google.com/public/basic.ics">Copy calendar link</button>
+          </div>
         </div>
-        <p style="margin-top:16px; color:var(--ink-soft); font-size:0.92rem;">Copy the link above into your calendar app's "subscribe by URL" option to keep ICCRA dates synced automatically.</p>
       </div>
     </div>
   </section>
@@ -64,6 +70,23 @@
   if (window.location.hash === '#digital') {
     document.getElementById('digital').click();
   }
+</script>
+<script>
+  (function () {
+    const frame = document.getElementById('schoolCalendar');
+    if (frame && window.matchMedia('(max-width: 720px)').matches) frame.src = frame.dataset.src + '&mode=AGENDA';
+
+    const openDigital = () => { const b = document.querySelector('[data-tab="panelDigital"]'); if (b) b.click(); };
+    document.addEventListener('chrome:ready', () => { if (location.hash === '#digital') openDigital(); });
+    document.querySelectorAll('.calendar-tab-link').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); openDigital(); document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth' }); }));
+
+    document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+      const label = btn.textContent;
+      try { await navigator.clipboard.writeText(btn.dataset.copy); btn.textContent = 'Link copied'; }
+      catch { window.prompt('Copy this calendar link:', btn.dataset.copy); }
+      setTimeout(() => { btn.textContent = label; }, 2000);
+    }));
+  })();
 </script>
 </body>
 </html>
