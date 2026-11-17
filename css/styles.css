@@ -368,17 +368,22 @@ section { padding: var(--section-pad) 0; }
 .content-block ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border: 1.5px solid var(--teal); transform: rotate(45deg); }
 /* Scope & Sequence download (bottom of Curriculum) */
 .scope-download { padding: clamp(48px, 6vw, 80px) var(--gutter); }
-.scope-download-inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; gap: clamp(20px, 3vw, 36px); background: var(--paper-alt); border: 1px solid var(--line); border-radius: var(--radius-md); padding: clamp(28px, 4vw, 44px); }
+.scope-download-inner { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; align-items: stretch; gap: 26px; background: var(--paper-alt); border: 1px solid var(--line); border-radius: var(--radius-md); padding: clamp(28px, 4vw, 44px); }
+.scope-download-head { display: flex; align-items: center; gap: clamp(20px, 3vw, 32px); }
+.scope-download-grades { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.scope-download-grades .btn { width: 100%; }
 .scope-download-icon { width: 64px; height: 64px; flex-shrink: 0; color: var(--teal); }
 .scope-download-text { flex: 1; }
 .scope-download-text h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 6px; }
 .scope-download-text p { color: var(--ink-soft); font-size: 1.02rem; }
 @media (max-width: 720px) {
-  .scope-download-inner { flex-direction: column; align-items: flex-start; }
-  .scope-download-inner .btn { width: 100%; }
+  .scope-download-head { flex-direction: column; align-items: flex-start; }
+  .scope-download-grades { grid-template-columns: 1fr 1fr; }
 }
 .download-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px 26px; margin-top: 12px; }
 .download-card span { font-weight: 600; }
+.download-card-featured { background: var(--paper-alt); margin: 0 0 36px; }
+.download-card-featured p { margin: 4px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
 
 /* =========================================================
    CALENDAR TABS

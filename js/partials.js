@@ -93,7 +93,7 @@ function renderFooter(site) {
   const columns = site.footerNav.map(col => `
     <div class="footer-col">
       <h4>${col.heading}</h4>
-      ${col.links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+      ${col.links.map(l => `<a href="${l.href}"${l.download ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`).join('')}
     </div>`).join('');
 
   const socialCol = `
